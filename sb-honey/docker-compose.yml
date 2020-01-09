@@ -18,4 +18,5 @@ networks:
     driver: bridge
 
 volumes:
-  elasticsearch:
+  cowrie-etc:
+  cowrie-var:
