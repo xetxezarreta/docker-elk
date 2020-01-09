@@ -10,8 +10,8 @@ services:
       - "2222:2222"
       - "2223:2223"
     volumes:
-      - cowrie-etc:/cowrie/cowrie-git/etc
-      - cowrie-var:/cowrie/cowrie-git/var
+      - ./cowrie/cowrie-etc:/cowrie/cowrie-git/etc
+      - ./cowrie/cowrie-var:/cowrie/cowrie-git/var
 
 networks:
   elk:
