@@ -84,8 +84,6 @@ services:
         source: ./packetbeat/config/packetbeat.yml
         target: /usr/share/packetbeat/config/packetbeat.yml
         read_only: true
-    networks:
-      - elk
     depends_on:
       - elasticsearch
 
