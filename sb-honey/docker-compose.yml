@@ -13,43 +13,21 @@ services:
       - cowrie-etc:/cowrie/cowrie-git/etc
       - cowrie-var:/cowrie/cowrie-git/var
 
-  dionaea:
+  conpot:
     build:
       context: .
-      dockerfile: dionaea/Dockerfile
-    container_name: dionaea
-    stdin_open: true
-    tty: true
-    restart: always
-    network_mode: "host"
+      dockerfile: conpot/Dockerfile
     ports:
-      - "20:20"
-      - "21:21"
-      - "42:42"
-      - "69:69/udp"
-      - "81:81"
-      - "135:135"
-      - "443:443"
-      - "445:445"
-      - "1433:1433"
-      - "1723:1723"
-      - "1883:1883"
-      - "3306:3306"
-      - "5060:5060"
-      - "5060:5060/udp"
-      - "5061:5061"
-      - "27017:27017"
-    #image: "dtagdevsec/dionaea:1903"
-    read_only: true
-    volumes:
-      - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
-      - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
-      - /data/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
-      - /data/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
-      - /data/dionaea:/opt/dionaea/var/dionaea
-      - /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
-      - /data/dionaea/log:/opt/dionaea/var/log
-      - /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
+      - "80:8800" #SCADA UI, http
+      - "102:10201" #S7Comm
+      - "502:5020" #Modbus
+      - "161:16100/udp" #SNMP
+      - "47808:47808/udp" #Bacnet
+      - "623:6230/udp" #IPMI
+      - "21:2121" #FTP
+      - "69:6969/udp" #TFTP
+      - "44818:44818" #EN/IP
+    restart: always
 
   filebeat:
     #image: docker.elastic.co/beats/filebeat:${TAG}
@@ -94,4 +72,4 @@ volumes:
   cowrie-etc:
   cowrie-var:
   filebeat:
-  dionaea:
+  conpot:
