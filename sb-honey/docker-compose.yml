@@ -26,13 +26,13 @@ services:
     # If the host system has logs at "/var/log", mount them at "/mnt/log"
     # inside the container, where Filebeat can find them.
     # volumes: ['/var/log:/mnt/log:ro']
-    volumes:
+    secrets:
       - type: bind
         source: ./filebeat/config/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
 
-    #volumes:
-      #- './scripts/setup-beat.sh:/usr/local/bin/setup-beat.sh:ro'
+    volumes:
+      - './scripts/setup-beat.sh:/usr/local/bin/setup-beat.sh:ro'
     #networks: ['stack']
     #depends_on: ['elasticsearch', 'kibana']
 
