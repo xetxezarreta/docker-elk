@@ -5,8 +5,8 @@ filebeat.inputs:
       fields:
         document_type: cowrie
       fields_under_root: true
-    
-    output:
+
+    - output:
       logstash:
         hosts: ["3.80.203.175:5044"]
         bulk_max_size: 1024
