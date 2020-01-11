@@ -51,10 +51,11 @@ services:
       #- /data/dionaea/log:/opt/dionaea/var/log
       #- /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
 
+      - dionaea:/dionaea-git/ftp
+      - dionaea:/dionaea-git/tftp
+      - dionaea:/dionaea-git/www
+      - dionaea:/dionaea-git/upnp
       - dionaea:/dionaea-git/var
-      #- dionaea:/dionaea-git/www
-      #- dionaea:/dionaea-git/upnp
-      #- dionaea:/dionaea-git/
 
 
   filebeat:
