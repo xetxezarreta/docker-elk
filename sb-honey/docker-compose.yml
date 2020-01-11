@@ -68,7 +68,8 @@ services:
       #- source: ./filebeat/config
       #  target: /usr/share/filebeat/filebeat.yml
     volumes:
-      - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      #- ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      -filebeat:/usr/share/filebeat/filebeat.yml:ro
       #- /var/run/docker.sock:/var/run/docker.sock
       # This is needed for filebeat to load container log path as specified in filebeat.yml
       #- /var/lib/docker/containers/:/var/lib/docker/containers/:ro
