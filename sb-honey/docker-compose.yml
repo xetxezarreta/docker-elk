@@ -27,8 +27,7 @@ services:
     # inside the container, where Filebeat can find them.
     # volumes: ['/var/log:/mnt/log:ro']
     secrets:
-      - type: bind
-        source: ./filebeat/config/filebeat.yml
+      - source: ./filebeat/config/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
 
     volumes:
