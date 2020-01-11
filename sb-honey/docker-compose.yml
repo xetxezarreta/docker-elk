@@ -93,3 +93,4 @@ volumes:
   cowrie-etc:
   cowrie-var:
   filebeat:
+  dionaea:
