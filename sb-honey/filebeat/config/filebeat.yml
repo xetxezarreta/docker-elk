@@ -1,12 +1,12 @@
 filebeat.inputs:
-    - type: log
-      paths:
-        - /var/lib/docker/volumes/sb-honey_cowrie-var/_data/log/cowrie/cowrie.json*
-      fields:
-        document_type: cowrie
-      fields_under_root: true
+- type: log
+  paths:
+    - /var/lib/docker/volumes/sb-honey_cowrie-var/_data/log/cowrie/cowrie.json*
+  fields:
+    document_type: cowrie
+  fields_under_root: true
 
-    - output:
-      logstash:
-        hosts: ["3.80.203.175:5044"]
-        bulk_max_size: 1024
+output:
+  logstash:
+    hosts: ["3.80.203.175:5044"]
+    bulk_max_size: 1024
