@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 ENV DEBIAN_FRONTEND noninteractive
 #
 # Include dist
-# ADD dist/ /root/dist/
+ADD dist/ ./dist/
 # Install dependencies and packages
 RUN apt-get update -y && \
     apt-get dist-upgrade -y && \
@@ -48,8 +48,8 @@ RUN apt-get update -y && \
 #
 # Supply configs and set permissions
     chown -R dionaea:dionaea /opt/dionaea/var && \
-    #rm -rf /opt/dionaea/etc/dionaea/* && \
-    #mv /root/dist/etc/* /opt/dionaea/etc/dionaea/ && \
+    rm -rf /opt/dionaea/etc/dionaea/* && \
+    mv ./dist/etc/* /opt/dionaea/etc/dionaea/ && \
 #
 # Setup runtime and clean up
     apt-get purge -y \
