@@ -42,7 +42,8 @@ services:
     image: "dtagdevsec/dionaea:1903"
     read_only: true
     volumes:
-      - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
+      #- /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
+      - dionaea/ftp:/dionaea-git/ftp
       - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
       - /data/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
       - /data/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
