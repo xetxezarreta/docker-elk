@@ -17,3 +17,8 @@ output.logstash:
   #api_key: "id:api_key"
   username: "elastic"
   password: "changeme"
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
