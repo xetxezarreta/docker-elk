@@ -22,3 +22,19 @@ services:
         #target: /usr/share/packetbeat/config/packetbeat.yml
         target: /usr/share/packetbeat/packetbeat.yml
         read_only: true
+
+  metricbeat:
+    build:
+      context: metricbeat/
+      args:
+        ELK_VERSION: $ELK_VERSION   
+        LOGSTASH_IP: $LOGSTASH_IP 
+        LOGSTASH_PORT: $LOGSTASH_PORT    
+    entrypoint: "metricbeat -e -strict.perms=false" # disable strict permission checks
+    user: root
+    network_mode: host
+    volumes:
+      - type: bind
+        source: ./metricbeat/config/metricbeat.yml
+        target: /usr/share/metricbeat/metricbeat.yml
+        read_only: true
