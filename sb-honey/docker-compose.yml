@@ -36,4 +36,3 @@ volumes:
   cowrie-etc:
   cowrie-var:
   filebeat:
-  metricbeat:
