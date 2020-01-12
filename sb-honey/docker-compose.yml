@@ -13,27 +13,6 @@ services:
       - cowrie-etc:/cowrie/cowrie-git/etc
       - cowrie-var:/cowrie/cowrie-git/var
 
-  metricbeat:
-    #image: docker.elastic.co/beats/metricbeat:${TAG}
-    build:
-      context: .
-      dockerfile: metricbeat/Dockerfile
-    container_name: metricbeat
-    # The commented sections below enable Metricbeat to monitor the Docker host,
-    # rather than the Metricbeat container. It's problematic with Docker for
-    # Windows, however, since "/proc", "/sys" etc. don't exist on Windows.
-    # The same likely applies to OSX (needs testing).
-    # volumes:
-    #   - /proc:/hostfs/proc:ro
-    #   - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
-    #   - /:/hostfs:ro
-    command: --strict.perms=false -e  # -e flag to log to stderr and disable syslog/file output
-    volumes:
-      - ./metricbeat/config/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
-      - metricbeat:/var/log/:ro
-    #volumes:
-      #- './scripts/setup-beat.sh:/usr/local/bin/setup-beat.sh:ro'
-
   filebeat:
     #image: docker.elastic.co/beats/filebeat:${TAG}
     build:
@@ -61,7 +40,7 @@ services:
 
       # This is needed for filebeat to load logs for system and auth modules
       #- /var/log/:/var/log/:ro
-      - filebeat:/var/log/:ro
+      - /var/log/:/var/log/:ro
       # This is needed for filebeat to load logs for auditd module
       # - /var/log/audit/:/var/log/audit/:ro
     #volumes:
