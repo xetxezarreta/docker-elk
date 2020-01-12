@@ -58,10 +58,10 @@ packetbeat.protocols:
 #-------------------------- Logstash output ------------------------------
 output.logstash:
   # Boolean flag to enable or disable the output module.
-  enabled: true
+  enabled: false
   # Array of hosts to connect to.
-  hosts: ["18.215.157.192:5000"]
-  protocol: "http"
+  hosts: ["http://18.215.157.192:5000"]
+  #protocol: "http"
 
   index: packetbeat
   
