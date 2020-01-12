@@ -60,4 +60,4 @@ processors:
 
 #============================== Dashboards =====================================
 setup.dashboards:
-  enabled: false
+  enabled: true
