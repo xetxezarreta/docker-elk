@@ -50,7 +50,7 @@ processors:
 output.logstash:
   enabled: true
   index: packetbeat
-  hosts: ["${LOGSTASH_IP}:${LOGSTASH_PORT}"]
+  hosts: ["${LOGSTASH_IP:default_value}:${LOGSTASH_PORT:default_value}"]
   #protocol: "http"  
     
   # Authentication credentials - either API key or username/password.
