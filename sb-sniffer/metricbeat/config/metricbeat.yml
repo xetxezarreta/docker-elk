@@ -1,3 +1,4 @@
+metricbeat.modules:
 #------------------------------- System Module -------------------------------
 - module: system
   metricsets: ["cpu", "load", "memory", "network", "process", "process_summary", "core", "diskio", "socket"]
