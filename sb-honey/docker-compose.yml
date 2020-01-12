@@ -24,9 +24,9 @@ services:
     build:
       context: .
       dockerfile: metricbeat/Dockerfile
-    configs:
-      - source: mb_config
-        target: /usr/share/metricbeat/metricbeat.yml
+    #configs:
+      #- source: mb_config
+      #  target: /usr/share/metricbeat/metricbeat.yml
     volumes:
       #- /proc:/hostfs/proc:ro
       #- /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
