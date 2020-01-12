@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.6'
 
 services:    
   packetbeat:
@@ -15,11 +15,9 @@ services:
     # the real network interface on the host, rather than being isolated to the
     # container's virtual interface. 
     network_mode: host
-    secrets:
-      - source: ./packetbeat/config/packetbeat.yml
-        target: /usr/share/packetbeat/packetbeat.yml
-    #volumes:
-      #- type: bind
-        #source: ./packetbeat/config/packetbeat.yml
+    volumes:
+      - type: bind
+        source: ./packetbeat/config/packetbeat.yml
         #target: /usr/share/packetbeat/config/packetbeat.yml
-        #read_only: true
+        target: /usr/share/packetbeat/packetbeat.yml
+        read_only: true
