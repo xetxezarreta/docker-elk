@@ -27,7 +27,9 @@ services:
     build:
       context: metricbeat/
       args:
-        ELK_VERSION: $ELK_VERSION       
+        ELK_VERSION: $ELK_VERSION   
+        LOGSTASH_IP: $LOGSTASH_IP 
+        LOGSTASH_PORT: $LOGSTASH_PORT    
     command: ["--strict.perms=false", "-system.hostfs=/hostfs"] # disable strict permission checks
     user: root
     network_mode: host

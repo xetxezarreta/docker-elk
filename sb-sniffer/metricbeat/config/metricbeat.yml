@@ -47,16 +47,16 @@ processors:
     netinfo.enabled: true
 
 #-------------------------- Logstash output ------------------------------
-  output.logstash:
-    enabled: true
-    index: packetbeat
-    hosts: ["18.215.157.192:5000"]
-    #protocol: "http"  
+output.logstash:
+  enabled: true
+  index: packetbeat
+  hosts: ["${LOGSTASH_IP}:${LOGSTASH_PORT}"]
+  #protocol: "http"  
     
-    # Authentication credentials - either API key or username/password.
-    #api_key: "id:api_key"
-    username: "elastic"
-    password: "changeme"
+  # Authentication credentials - either API key or username/password.
+  #api_key: "id:api_key"
+  username: "elastic"
+  password: "changeme"
 
 #============================== Dashboards =====================================
 setup.dashboards:
