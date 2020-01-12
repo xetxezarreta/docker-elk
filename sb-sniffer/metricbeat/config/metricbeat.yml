@@ -32,13 +32,10 @@ metricbeat.modules:
 
 #================================ Processors ===================================
 processors:
+  - add_host_metadata: ~
   - add_cloud_metadata: ~
   - add_docker_metadata: ~
-  - add_locale:
-    format: offset
-  - add_host_metadata:
-    netinfo.enabled: true
-
+  
 #-------------------------- Logstash output ------------------------------
 output.logstash:
   enabled: true
