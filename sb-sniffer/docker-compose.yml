@@ -15,7 +15,6 @@ services:
     network_mode: host
 
     command: -e -E 'output.logstash.hosts=["18.215.157.192:5000"]'
-    depends_on: ['elasticsearch']
     command: --strict.perms=false -e -E output.logstash.hosts="http://18.215.157.192:5000" # -e flag to log to stderr and disable
 
     volumes:
