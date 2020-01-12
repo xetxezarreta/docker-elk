@@ -12,30 +12,23 @@ services:
     volumes:
       - cowrie-etc:/cowrie/cowrie-git/etc
       - cowrie-var:/cowrie/cowrie-git/var
-
+  
   filebeat:
-    #image: docker.elastic.co/beats/filebeat:${TAG}
     build:
-      context: .
-      dockerfile: filebeat/Dockerfile
-    container_name: filebeat
-    entrypoint: "filebeat -e -strict.perms=false"
-    #command: --strict.perms=false -e  
-    # -e flag to log to stderr and disable syslog/file output
-    # If the host system has logs at "/var/log", mount them at "/mnt/log"
-    # inside the container, where Filebeat can find them.
-    # volumes: ['/var/log:/mnt/log:ro']
+      context: metricbeat/
+      args:
+        ELK_VERSION: $ELK_VERSION   
+    entrypoint: "filebeat -e -strict.perms=false" # disable strict permission checks
+    user: root
+    network_mode: host
     volumes:
       - type: bind
         source: ./filebeat/config/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
         read_only: true
-
-networks:
-  elk:
-    driver: bridge
+    depends_on:
+      - cowrie
 
 volumes:
   cowrie-etc:
   cowrie-var:
-  filebeat:

@@ -10,5 +10,10 @@ filebeat.inputs:
 
 output.logstash:
   enabled: true
-  hosts: ["3.82.49.165:5044"]
-  bulk_max_size: 1024
+  hosts: ["54.226.224.49:5000"]
+  #protocol: "http"  
+    
+  # Authentication credentials - either API key or username/password.
+  #api_key: "id:api_key"
+  username: "elastic"
+  password: "changeme"
