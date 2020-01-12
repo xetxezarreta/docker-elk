@@ -11,7 +11,7 @@ services:
     cap_add: ['NET_RAW', 'NET_ADMIN']
     # Use "host mode" networking to allow Packetbeat to capture traffic from
     # the real network interface on the host, rather than being isolated to the
-    # container's virtual interface.
+    # container's virtual interface.    
     network_mode: host
     volumes:
       - type: bind
