@@ -67,6 +67,8 @@ output.logstash:
   # Array of hosts to connect to.
   hosts: ["localhost:5000"]
   protocol: "http"
+
+  index: packetbeat
   
   # Authentication credentials - either API key or username/password.
   #api_key: "id:api_key"
