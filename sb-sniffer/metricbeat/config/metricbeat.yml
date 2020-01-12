@@ -35,7 +35,7 @@ processors:
   - add_host_metadata: ~
   - add_cloud_metadata: ~
   - add_docker_metadata: ~
-  
+
 #-------------------------- Logstash output ------------------------------
 output.logstash:
   enabled: true
@@ -48,7 +48,3 @@ output.logstash:
   #api_key: "id:api_key"
   username: "elastic"
   password: "changeme"
-
-#============================== Dashboards =====================================
-setup.dashboards:
-  enabled: true
