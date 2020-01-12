@@ -28,8 +28,8 @@ services:
     #configs:
       #- source: ./filebeat/config
       #  target: /usr/share/filebeat/filebeat.yml
-    volumes:
-      - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+    #volumes:
+      #- ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       #- filebeat:/usr/share/filebeat/filebeat.yml:ro
       #- /var/run/docker.sock:/var/run/docker.sock
       # This is needed for filebeat to load container log path as specified in filebeat.yml
@@ -40,13 +40,14 @@ services:
 
       # This is needed for filebeat to load logs for system and auth modules
       #- /var/log/:/var/log/:ro
-      - /var/log/:/var/log/:ro
+      #- /var/log/:/var/log/:ro
       # This is needed for filebeat to load logs for auditd module
       # - /var/log/audit/:/var/log/audit/:ro
-    #volumes:
-      #- './scripts/setup-beat.sh:/usr/local/bin/setup-beat.sh:ro'
-    #networks: ['stack']
-    #depends_on: ['elasticsearch', 'kibana']
+      volumes:
+        - type: bind
+          source: ./filebeat/config/filebeat.yml
+          target: /usr/share/filebeat/filebeat.yml
+          read_only: true
 
 networks:
   elk:
