@@ -60,7 +60,7 @@ output.logstash:
   # Boolean flag to enable or disable the output module.
   enabled: true
   # Array of hosts to connect to.
-  hosts: ["http://18.215.157.192:5000"]
+  hosts: ["18.215.157.192:5000"]
   #protocol: "http"
 
   index: packetbeat
