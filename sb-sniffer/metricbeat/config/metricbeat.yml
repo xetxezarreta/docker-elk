@@ -1,11 +1,3 @@
-#-------------------------------- Autodiscovery -------------------------------
-# Autodiscover allows you to detect changes in the system and spawn new modules as they happen.
-metricbeat.autodiscover:
-  providers:
-    - type: docker
-      hints.enabled: true
-
-metricbeat.modules:
 #------------------------------- System Module -------------------------------
 - module: system
   metricsets: ["cpu", "load", "memory", "network", "process", "process_summary", "core", "diskio", "socket"]
