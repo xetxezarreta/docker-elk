@@ -1,11 +1,10 @@
-version: '3.2'
+version: '3.6'
 
 services:
   cowrie:
     restart: always
     build:
-      context: .
-      dockerfile: cowrie/Dockerfile
+      context: cowrie/ 
     ports:
       - "2222:2222"
       - "2223:2223"
