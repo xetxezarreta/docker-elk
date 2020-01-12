@@ -15,6 +15,9 @@ services:
 
   metricbeat:
     #image: docker.elastic.co/beats/metricbeat:${TAG}
+    build:
+      context: .
+      dockerfile: metricbeat/Dockerfile
     container_name: metricbeat
     # The commented sections below enable Metricbeat to monitor the Docker host,
     # rather than the Metricbeat container. It's problematic with Docker for
