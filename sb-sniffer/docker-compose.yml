@@ -30,7 +30,7 @@ services:
         ELK_VERSION: $ELK_VERSION   
         LOGSTASH_IP: $LOGSTASH_IP 
         LOGSTASH_PORT: $LOGSTASH_PORT    
-    command: ["--strict.perms=false", "-system.hostfs=/hostfs"] # disable strict permission checks
+    entrypoint: "metricbeat -e -strict.perms=false" # disable strict permission checks
     user: root
     network_mode: host
     volumes:
