@@ -25,4 +25,3 @@ services:
 networks:
   elastic:
       external: true
-      name: host
