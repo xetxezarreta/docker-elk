@@ -13,36 +13,23 @@ services:
       - cowrie-etc:/cowrie/cowrie-git/etc
       - cowrie-var:/cowrie/cowrie-git/var
 
-
   metricbeat:
-    #image: docker.elastic.co/beats/metricbeat:${ELASTIC_VERSION:-7.1.1}
-    # https://github.com/docker/swarmkit/issues/1951
-    hostname: "{{.Node.Hostname}}-metricbeat"
-    user: root
-    #networks:
-    #  - elastic
-    build:
-      context: .
-      dockerfile: metricbeat/Dockerfile
-    #configs:
-      #- source: mb_config
-      #  target: /usr/share/metricbeat/metricbeat.yml
+    #image: docker.elastic.co/beats/metricbeat:${TAG}
+    container_name: metricbeat
+    # The commented sections below enable Metricbeat to monitor the Docker host,
+    # rather than the Metricbeat container. It's problematic with Docker for
+    # Windows, however, since "/proc", "/sys" etc. don't exist on Windows.
+    # The same likely applies to OSX (needs testing).
+    # volumes:
+    #   - /proc:/hostfs/proc:ro
+    #   - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+    #   - /:/hostfs:ro
+    command: --strict.perms=false -e  # -e flag to log to stderr and disable syslog/file output
     volumes:
-      #- /proc:/hostfs/proc:ro
-      #- /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
-      #- /:/hostfs:ro
-      #- /var/run/docker.sock:/var/run/docker.sock
       - ./metricbeat/config/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
       - metricbeat:/var/log/:ro
-    #environment:
-    #  - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST:-node1}
-    #  - KIBANA_HOST=${KIBANA_HOST:-node1}
-    #  - ELASTICSEARCH_USERNAME=${ELASTICSEARCH_USERNAME:-elastic}
-    #  - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD:-changeme}
-    # disable strict permission checks
-    command: ["--strict.perms=false", "-system.hostfs=/hostfs"]
-    deploy:
-      mode: global
+    #volumes:
+      #- './scripts/setup-beat.sh:/usr/local/bin/setup-beat.sh:ro'
 
   filebeat:
     #image: docker.elastic.co/beats/filebeat:${TAG}
