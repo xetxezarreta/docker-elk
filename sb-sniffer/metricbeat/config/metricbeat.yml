@@ -29,6 +29,15 @@
   hosts: ["unix:///var/run/docker.sock"]
   period: 10s
 
+#================================ Processors ===================================
+processors:
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_locale:
+    format: offset
+  - add_host_metadata:
+    netinfo.enabled: true
+
 #-------------------------- Logstash output ------------------------------
 output.logstash:
   enabled: true
