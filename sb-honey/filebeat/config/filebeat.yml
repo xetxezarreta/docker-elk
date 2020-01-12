@@ -4,7 +4,8 @@ filebeat.inputs:
     - /var/lib/docker/volumes/sb-honey_cowrie-var/_data/log/cowrie/cowrie.json*
   fields:
     document_type: cowrie
-  fields_under_root: true
+    json.keys_under_root: true
+    json.add_error_key: true
 
 output.logstash:
   enabled: true
