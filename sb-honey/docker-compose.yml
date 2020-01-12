@@ -15,7 +15,7 @@ services:
   
   filebeat:
     build:
-      context: metricbeat/
+      context: filebeat/
       args:
         ELK_VERSION: $ELK_VERSION   
     entrypoint: "filebeat -e -strict.perms=false" # disable strict permission checks
