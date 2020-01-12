@@ -12,9 +12,17 @@ services:
     # Use "host mode" networking to allow Packetbeat to capture traffic from
     # the real network interface on the host, rather than being isolated to the
     # container's virtual interface.   
-    network_mode: host
+
+    networks:
+      - elastic
+    #network_mode: host
     volumes:
       - type: bind
         source: ./packetbeat/config/packetbeat.yml
         target: /usr/share/packetbeat/config/packetbeat.yml
         read_only: true
+
+networks:
+  elastic:
+      external: true
+      name: host
