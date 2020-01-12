@@ -53,8 +53,8 @@ packetbeat.protocols:
 
 #==================== Elasticsearch template setting ==========================
 
-setup.template.settings:
-  index.number_of_shards: 1
+#setup.template.settings:
+  #index.number_of_shards: 1
   #index.codec: best_compression
   #_source.enabled: false
 
@@ -64,8 +64,10 @@ setup.template.settings:
 
 #-------------------------- Logstash output ------------------------------
 output.logstash:
+  # Boolean flag to enable or disable the output module.
+  enabled: true
   # Array of hosts to connect to.
-  hosts: ["127.0.0.1:5000"]
+  hosts: ["18.215.157.192:5000"]
   protocol: "http"
 
   index: packetbeat
@@ -76,15 +78,6 @@ output.logstash:
   password: "changeme"
 
 #-------------------------- Elasticsearch output ------------------------------
-#output.elasticsearch:
-  # Array of hosts to connect to.
-  #hosts: ["localhost:9200"]
-
-  # Protocol - either `http` (default) or `https`.
-  #protocol: "https"
-
-  # Authentication credentials - either API key or username/password.
-  #api_key: "id:api_key"
-  #username: "elastic"
-  #password: "changeme"
-  
+  output.elasticsearch:
+    # Boolean flag to enable or disable the output module.
+    enabled: false
