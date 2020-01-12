@@ -28,7 +28,8 @@ services:
     #configs:
       #- source: ./filebeat/config
       #  target: /usr/share/filebeat/filebeat.yml
-    #volumes:
+    volumes:
+      - "./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       #- ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       #- filebeat:/usr/share/filebeat/filebeat.yml:ro
       #- /var/run/docker.sock:/var/run/docker.sock
@@ -43,11 +44,11 @@ services:
       #- /var/log/:/var/log/:ro
       # This is needed for filebeat to load logs for auditd module
       # - /var/log/audit/:/var/log/audit/:ro
-    volumes:
-      - type: bind
-        source: ./filebeat/config/filebeat.yml
-        target: /usr/share/filebeat/filebeat.yml
-        read_only: true
+    #volumes:
+      #- type: bind
+        #source: ./filebeat/config/filebeat.yml
+        #target: /usr/share/filebeat/filebeat.yml
+        #read_only: true
 
 networks:
   elk:
