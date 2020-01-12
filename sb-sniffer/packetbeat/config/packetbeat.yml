@@ -76,3 +76,8 @@ output.logstash:
   #api_key: "id:api_key"
   username: "elastic"
   password: "changeme"
+
+#-------------------------- Elasticsearch output ------------------------------
+  output.elasticsearch:
+    # Boolean flag to enable or disable the output module.
+    enabled: false
