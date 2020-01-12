@@ -63,7 +63,7 @@ setup.template.settings:
 # Configure what output to use when sending the data collected by the beat.
 
 #-------------------------- Logstash output ------------------------------
-output.elasticsearch:
+output.logstash:
     # Array of hosts to connect to.
   hosts: ["localhost:5000"]
   
