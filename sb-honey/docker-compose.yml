@@ -23,7 +23,8 @@ services:
     # inside the container, where Filebeat can find them.
     # volumes: ['/var/log:/mnt/log:ro']
     volumes:
-      - source: ./filebeat/config/filebeat.yml
+      - type: bind
+        source: ./filebeat/config/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
         read_only: true
 
