@@ -30,7 +30,7 @@ services:
       #  target: /usr/share/filebeat/filebeat.yml
     volumes:
       - "./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
-      - "./cowrie-var:./cowrie:ro"
+      - "./cowrie-var:/cowrie/cowrie-git/var:ro"
       #- ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       #- filebeat:/usr/share/filebeat/filebeat.yml:ro
       #- /var/run/docker.sock:/var/run/docker.sock
