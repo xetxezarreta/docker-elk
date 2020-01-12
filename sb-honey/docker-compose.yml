@@ -43,11 +43,11 @@ services:
       #- /var/log/:/var/log/:ro
       # This is needed for filebeat to load logs for auditd module
       # - /var/log/audit/:/var/log/audit/:ro
-      volumes:
-        - type: bind
-          source: ./filebeat/config/filebeat.yml
-          target: /usr/share/filebeat/filebeat.yml
-          read_only: true
+    volumes:
+      - type: bind
+        source: ./filebeat/config/filebeat.yml
+        target: /usr/share/filebeat/filebeat.yml
+        read_only: true
 
 networks:
   elk:
