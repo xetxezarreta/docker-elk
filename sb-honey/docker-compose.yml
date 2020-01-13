@@ -2,6 +2,7 @@ version: '3.2'
 
 services:
   cowrie:
+    container_name: cowrie
     restart: always
     build:
       context: .
@@ -11,7 +12,7 @@ services:
       - "2223:2223"
     volumes:
       - cowrie-etc:/cowrie/cowrie-git/etc
-      - cowrie-var:/cowrie/cowrie-git/var
+      - cowrie-var:/cowrie/cowrie-git/var/log/cowrie      
   
   dionaea:
     restart: always
