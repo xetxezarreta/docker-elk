@@ -38,19 +38,19 @@ RUN apt-get update -y && \
     cd /root/dionaea && \
     mkdir build && \
     cd build && \
-    cmake -DCMAKE_INSTALL_PREFIX:PATH=/opt/dionaea .. && \
+    cmake -DCMAKE_INSTALL_PREFIX:PATH=/dionaea .. && \
     make && \
     make install && \
 #
 # Setup user and groups
     addgroup --gid 2000 dionaea && \
     adduser --system --no-create-home --shell /bin/bash --uid 2000 --disabled-password --disabled-login --gid 2000 dionaea && \
-    setcap cap_net_bind_service=+ep /opt/dionaea/bin/dionaea && \
+    setcap cap_net_bind_service=+ep /dionaea/bin/dionaea && \
 #
 # Supply configs and set permissions
-    chown -R dionaea:dionaea /opt/dionaea/var && \
-    rm -rf /opt/dionaea/etc/dionaea/* && \
-    mv /root/dist/etc/* /opt/dionaea/etc/dionaea/ && \
+    chown -R dionaea:dionaea /dionaea/var && \
+    rm -rf /dionaea/etc/dionaea/* && \
+    mv /root/dist/etc/* /dionaea/etc/dionaea/ && \
 #
 # Setup runtime and clean up
     apt-get purge -y \
@@ -97,4 +97,4 @@ RUN apt-get update -y && \
 #
 # Start dionaea
 USER dionaea:dionaea
-CMD ["/opt/dionaea/bin/dionaea", "-u", "dionaea", "-g", "dionaea", "-c", "/opt/dionaea/etc/dionaea/dionaea.cfg"]
+CMD ["/dionaea/bin/dionaea", "-u", "dionaea", "-g", "dionaea", "-c", "/dionaea/etc/dionaea/dionaea.cfg"]

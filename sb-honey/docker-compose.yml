@@ -17,7 +17,8 @@ services:
   dionaea:
     restart: always
     build:
-      context: dionaea/
+      context: .
+      dockerfile: ./dionaea/Dockerfile
     stdin_open: true
     tty: true    
     network_mode: "host"
