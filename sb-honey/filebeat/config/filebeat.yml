@@ -10,7 +10,7 @@ filebeat.inputs:
 
 output.logstash:
   enabled: true
-  hosts: ["54.226.224.49:5000"]
+  hosts: ["18.215.143.216:5000"]
   #protocol: "http"  
     
   # Authentication credentials - either API key or username/password.
