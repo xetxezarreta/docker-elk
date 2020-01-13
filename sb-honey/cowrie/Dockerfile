@@ -5,8 +5,6 @@
 FROM debian:buster-slim as builder
 LABEL maintainer="Michel Oosterhof <michel@oosterhof.net>"
 
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-
 ENV COWRIE_GROUP=cowrie \
     COWRIE_USER=cowrie \
     COWRIE_HOME=/cowrie
