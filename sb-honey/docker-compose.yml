@@ -19,6 +19,7 @@ services:
     stdin_open: true
     tty: true    
     network_mode: "host"
+    user: root
     ports:
      - "20:20"
      - "21:21"
