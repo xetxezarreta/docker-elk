@@ -5,6 +5,8 @@
 FROM debian:buster-slim as builder
 LABEL maintainer="Michel Oosterhof <michel@oosterhof.net>"
 
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+
 ENV COWRIE_GROUP=cowrie \
     COWRIE_USER=cowrie \
     COWRIE_HOME=/cowrie
@@ -16,8 +18,6 @@ ENV LC_ALL=en_US.UTF-8 \
 
 RUN groupadd -r -g 1000 ${COWRIE_GROUP} && \
     useradd -r -u 1000 -d ${COWRIE_HOME} -m -g ${COWRIE_GROUP} ${COWRIE_USER}
-
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 # Set up Debian prereqs
 RUN export DEBIAN_FRONTEND=noninteractive; \
