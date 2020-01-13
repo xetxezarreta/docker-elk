@@ -1,7 +1,7 @@
 filebeat.inputs:
 - type: log
   paths:
-    - /var/lib/docker/volumes/sb-honey_cowrie-var/_data/log/cowrie/cowrie.json*
+    - /data/cowrie/cowrie.json*
   json.keys_under_root: true
   json.add_error_key: true
   fields:
@@ -10,6 +10,7 @@ filebeat.inputs:
 
 output.logstash:
   enabled: true
+  index: filebeat
   hosts: ["18.215.143.216:5000"]
   #protocol: "http"  
     
