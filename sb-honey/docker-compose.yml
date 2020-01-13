@@ -43,14 +43,7 @@ services:
     #image: "dtagdevsec/dionaea:1903"
     read_only: true
     volumes:
-     - /data/dionaea/roots/ftp:/dionaea/var/dionaea/roots/ftp
-     - /data/dionaea/roots/tftp:/dionaea/var/dionaea/roots/tftp
-     - /data/dionaea/roots/www:/dionaea/var/dionaea/roots/www
-     - /data/dionaea/roots/upnp:/dionaea/var/dionaea/roots/upnp
-     - /data/dionaea:/dionaea/var/dionaea
-     - /data/dionaea/binaries:/dionaea/var/dionaea/binaries
-     - /data/dionaea/log:/dionaea/var/log
-     - /data/dionaea/rtp:/dionaea/var/dionaea/rtp
+      - dionaea-var:/dionaea/dionaea-git/var/log/dionaea
   
   filebeat:
     build:
