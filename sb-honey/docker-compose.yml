@@ -48,8 +48,8 @@ services:
       #- /data/dionaea/roots/www:/opt/dionaea/var/dionaea/roots/www
       #- /data/dionaea/roots/upnp:/opt/dionaea/var/dionaea/roots/upnp
       #- /data/dionaea:/opt/dionaea/var/dionaea
-      - /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
-      #- /data/dionaea/log:/opt/dionaea/var/log
+      #- /data/dionaea/binaries:/opt/dionaea/var/dionaea/binaries
+      - /data/dionaea/log:/opt/dionaea/var/log
       #- /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
   
   filebeat:
