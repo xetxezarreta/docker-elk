@@ -66,7 +66,8 @@ services:
         read_only: true
       - type: bind
         source: cowrie-var
-        target: /usr/share/filebeat/data
+        target: /data/cowrie
+        read_only: true
     depends_on:
       - cowrie
 
