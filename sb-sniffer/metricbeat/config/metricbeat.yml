@@ -40,7 +40,7 @@ processors:
 output.logstash:
   enabled: true
   index: metricbeat
-  hosts: ["54.144.89.120:5000"]
+  hosts: ["18.215.143.216:5000"]
   #hosts: ["${LOGSTASH_IP:default_value}:${LOGSTASH_PORT:default_value}"]
   #protocol: "http"  
     
