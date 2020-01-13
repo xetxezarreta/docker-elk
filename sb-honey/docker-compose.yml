@@ -5,7 +5,7 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: cowrie/Dockerfile
+      dockerfile: ./cowrie/Dockerfile
     ports:
       - "2222:2222"
       - "2223:2223"
