@@ -64,7 +64,9 @@ services:
         source: ./filebeat/config/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
         read_only: true
-      - cowrie-var:/data/cowrie:ro
+      - type: bind
+        source: cowrie-var
+        target: /data
     depends_on:
       - cowrie
 
