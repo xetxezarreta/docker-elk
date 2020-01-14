@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-COPY build.sh /build/bin/
+COPY ./build.sh /build/bin/
 
 RUN /bin/bash /build/bin/build.sh && \
     groupadd --gid 1000 dionaea && \
