@@ -11,7 +11,7 @@ filebeat.inputs:
 output.logstash:
   enabled: true
   index: filebeat
-  hosts: ["18.215.143.216:5000"]
+  hosts: ["3.208.19.226:5000"]
   #protocol: "http"  
     
   # Authentication credentials - either API key or username/password.
