@@ -2,28 +2,23 @@ version: '3.6'
 
 services:    
   packetbeat:
+    container_name: packetbeat
     build:
       context: packetbeat/
       args:
         ELK_VERSION: $ELK_VERSION
     entrypoint: "packetbeat -e -strict.perms=false"
-    # Need to override user so we can access the log files, and docker.sock
     user: root
-    # Packetbeat needs some elevated privileges to capture network traffic.
-    # We'll grant them with POSIX capabilities.
-    cap_add: ['NET_RAW', 'NET_ADMIN']
-    # Use "host mode" networking to allow Packetbeat to capture traffic from
-    # the real network interface on the host, rather than being isolated to the
-    # container's virtual interface. 
-    network_mode: host
+    cap_add: ['NET_RAW', 'NET_ADMIN'] # Grant some elevated privileges to capture network traffic.
+    network_mode: host # Allow to capture traffic from host.
     volumes:
       - type: bind
         source: ./packetbeat/config/packetbeat.yml
-        #target: /usr/share/packetbeat/config/packetbeat.yml
         target: /usr/share/packetbeat/packetbeat.yml
         read_only: true
 
   metricbeat:
+    container_name: metricbeat
     build:
       context: metricbeat/
       args:

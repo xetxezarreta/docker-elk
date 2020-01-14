@@ -15,6 +15,7 @@ services:
       - cowrie-var:/cowrie/cowrie-git/var/log/cowrie
   
   dionaea:
+    container_name: dionaea
     restart: always
     build:
       context: .
@@ -49,6 +50,7 @@ services:
       #- /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
   
   filebeat:
+    container_name: filebeat
     build:
       context: filebeat/
       args:
