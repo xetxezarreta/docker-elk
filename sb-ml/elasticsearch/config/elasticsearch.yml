@@ -11,9 +11,9 @@ xpack.security.enabled: true
 xpack.monitoring.collection.enabled: true
 
 # SSL
-server.ssl.keyPassphrase: user
 xpack.security.http.ssl.enabled: true
 xpack.security.http.ssl.verification_mode: certificate
+xpack.security.http.ssl.key_passphrase: user
 xpack.security.http.ssl.key:  /usr/share/elasticsearch/config/certs/elasticsearch/elasticsearch.key
 xpack.security.http.ssl.certificate: /usr/share/elasticsearch/config/certs/elasticsearch/elasticsearch.crt
 xpack.security.http.ssl.certificate_authorities: [ "/usr/share/elasticsearch/config/certs/ca/ca.crt" ]
