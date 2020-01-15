@@ -3,7 +3,8 @@
 ## https://github.com/elastic/kibana/blob/master/src/dev/build/tasks/os_packages/docker_generator/templates/kibana_yml.template.js
 server.name: kibana
 server.host: "0"
-elasticsearch.hosts: [ "https://elasticsearch:9200" ]
+#elasticsearch.hosts: [ "https://elasticsearch:9200" ]
+elasticsearch.url: https://elasticsearch:9200
 xpack.monitoring.ui.container.elasticsearch.enabled: true
 
 # SSL
