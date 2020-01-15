@@ -63,6 +63,12 @@ services:
         source: ./kibana/config/kibana.yml
         target: /usr/share/kibana/config/kibana.yml
         read_only: true
+      - source: ./ssl/ca.crt
+        target: /usr/share/kibana/config/certs/ca/ca.crt
+      - source: ./ssl/kibana/kibana.key
+        target: /usr/share/kibana/config/certs/kibana/kibana.key
+      - source: ./ssl/kibana/kibana.crt
+        target: /usr/share/kibana/config/certs/kibana/kibana.crt
     ports:
       - "5601:5601"
     networks:
