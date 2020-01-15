@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 ENV DEBIAN_FRONTEND noninteractive
 #
 # Include dist
-ADD dist/ /root/dist/
+ADD ./dist/ /root/dist/
 #
 # Install dependencies and packages
 RUN apt-get update -y && \
