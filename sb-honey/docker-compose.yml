@@ -18,10 +18,10 @@ services:
     container_name: dionaea
     restart: always
     build:
-      context: .
-      dockerfile: ./dionaea/Dockerfile
+      context: dionaea/
     stdin_open: true
     tty: true    
+    user: root
     network_mode: "host"
     ports:
      - "20:20"
