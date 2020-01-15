@@ -11,6 +11,7 @@ server.ssl.enabled: true
 #elasticsearch.ssl.certificateAuthorities: /usr/share/kibana/config/certs/ca/ca.crt
 server.ssl.key: /usr/share/kibana/config/certs/kibana/kibana.key
 server.ssl.certificate: /usr/share/kibana/config/certs/kibana/kibana.crt
+elasticsearch.ssl.verificationMode: none
 
 ## X-Pack security credentials
 #
