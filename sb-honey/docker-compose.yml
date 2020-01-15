@@ -55,6 +55,9 @@ services:
         source: cowrie-var
         target: /data/cowrie
         read_only: true
+      - type: bind
+        source: ../sb-ml/ssl/ca.crt        
+        target: /usr/share/filebeat/certs/ca/ca.crt
     depends_on:
       - cowrie
 

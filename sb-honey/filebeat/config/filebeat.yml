@@ -8,16 +8,28 @@ filebeat.inputs:
     document_type: cowrie
 
 
-output.logstash:
+output.elasticsearch:
   enabled: true
   index: filebeat
-  hosts: ["3.208.19.226:5000"]
-  #protocol: "http"  
+  hosts: ["107.21.72.43:9200"]
+  protocol: "https"  
+  ssl.certificate_authorities: ["/usr/share/filebeat/certs/ca/ca.crt"]
     
   # Authentication credentials - either API key or username/password.
   #api_key: "id:api_key"
   username: "elastic"
   password: "changeme"
+
+#output.logstash:
+  #enabled: true
+  #index: filebeat
+  #hosts: ["3.208.19.226:5000"]
+  #protocol: "http"  
+    
+  # Authentication credentials - either API key or username/password.
+  #api_key: "id:api_key"
+  #username: "elastic"
+  #password: "changeme"
 
 processors:
   - add_host_metadata: ~
