@@ -60,7 +60,7 @@ output.logstash:
   enabled: true
   index: packetbeat
   #hosts: ["54.225.40.12:5000"]
-  hosts: ["${LOGSTASH_IP}:${LOGSTASH_PORT}"]
+  hosts: ["${LOGSTASH_HOST}"]
   #protocol: "http"  
     
   # Authentication credentials - either API key or username/password.

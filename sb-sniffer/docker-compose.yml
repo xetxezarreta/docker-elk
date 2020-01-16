@@ -7,6 +7,8 @@ services:
       context: packetbeat/
       args:
         ELK_VERSION: $ELK_VERSION
+    environment:
+      - LOGSTASH_HOST=$LOGSTASH_HOST
     entrypoint: "packetbeat -e -strict.perms=false"
     user: root
     cap_add: ['NET_RAW', 'NET_ADMIN'] # Grant some elevated privileges to capture network traffic.
@@ -23,8 +25,8 @@ services:
       context: metricbeat/
       args:
         ELK_VERSION: $ELK_VERSION   
-        LOGSTASH_IP: $LOGSTASH_IP 
-        LOGSTASH_PORT: $LOGSTASH_PORT    
+    environment:
+    - LOGSTASH_HOST=$LOGSTASH_HOST
     entrypoint: "metricbeat -e -strict.perms=false" # disable strict permission checks
     user: root
     network_mode: host
