@@ -52,29 +52,29 @@ services:
      - /data/dionaea/log:/opt/dionaea/var/log
      - /data/dionaea/rtp:/opt/dionaea/var/dionaea/rtp
   
-  filebeat:
-    container_name: filebeat
-    build:
-      context: filebeat/
-      args:
-        ELK_VERSION: $ELK_VERSION   
-    entrypoint: "filebeat -e -strict.perms=false" # disable strict permission checks
-    user: root
-    network_mode: host
-    volumes:
-      - type: bind
-        source: ./filebeat/config/filebeat.yml
-        target: /usr/share/filebeat/filebeat.yml
-        read_only: true
-      - type: volume
-        source: cowrie-var
-        target: /data/cowrie
-        read_only: true
-      - type: bind
-        source: ../sb-ml/ssl/ca.crt        
-        target: /usr/share/filebeat/certs/ca/ca.crt
-    depends_on:
-      - cowrie
+#  filebeat:
+#    container_name: filebeat
+#    build:
+#      context: filebeat/
+#      args:
+#        ELK_VERSION: $ELK_VERSION   
+#    entrypoint: "filebeat -e -strict.perms=false" # disable strict permission checks
+#    user: root
+#    network_mode: host
+#    volumes:
+#      - type: bind
+#        source: ./filebeat/config/filebeat.yml
+#        target: /usr/share/filebeat/filebeat.yml
+#        read_only: true
+#      - type: volume
+#        source: cowrie-var
+#        target: /data/cowrie
+#        read_only: true
+#      - type: bind
+#        source: ../sb-ml/ssl/ca.crt        
+#        target: /usr/share/filebeat/certs/ca/ca.crt
+#    depends_on:
+#      - cowrie
 
 volumes:
   cowrie-etc:

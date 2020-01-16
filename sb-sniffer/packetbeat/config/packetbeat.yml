@@ -59,7 +59,8 @@ packetbeat.protocols:
 output.logstash:
   enabled: true
   index: packetbeat
-  hosts: ["107.21.72.43:5000"]
+  #hosts: ["54.225.40.12:5000"]
+  hosts: ["${LOGSTASH_HOST}"]
   #protocol: "http"  
     
   # Authentication credentials - either API key or username/password.
