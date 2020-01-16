@@ -1,0 +1,18 @@
+PACKETBEAT
+- source.ip
+- source.port
+- source.packets #number of packets sent from source to destination
+- source.bytes #bytes sent from source to destination
+
+- destination.ip
+- destination.port
+- destination.packets #packets sent from destination to source
+- destination.bytes #bytes sent from destination to source
+
+- network.packets #source.packets + destination.packets
+- network.bytes #source.bytes + destination.bytes
+- network.transport #TCP/UDP/ICMP/IPV6-ICMP
+
+- event.duration 
+
+METRICBEAT
