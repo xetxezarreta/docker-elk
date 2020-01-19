@@ -3,7 +3,7 @@
 POPBL1 - Master
 
 ## sb-honey
-Despliegue automático de honeypots + filebeat.
+Despliegue automático de honeypots.
 
 ## sb-ml
 Despliegue automático de la subred de machine learning. Contiene el stack de Elastic (Kibana, Elasticsearch y Logstash). Aqui se desplegarán las aplicaciones flask relacionadas con análisis de datos (preprocesamiento + predicciones).
