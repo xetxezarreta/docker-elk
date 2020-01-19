@@ -11,9 +11,9 @@
 #    vendor_name: DrayTek
 
 # Linux
-    firmware: 1
-    hostname: local
-    vendor_name: linux
+#    firmware: 1
+#    hostname: local
+#    vendor_name: linux
 
 # Windows
 #    firmware_revision: 0
