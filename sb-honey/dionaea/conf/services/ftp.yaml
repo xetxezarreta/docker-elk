@@ -2,4 +2,4 @@
   config:
     root: /opt/dionaea/var/dionaea/roots/ftp
     response_messages:
-      welcome_msg: 220 FTP server ready.
+      welcome_msg: 220 DiskStation FTP server ready.
