@@ -59,7 +59,7 @@ packetbeat.protocols:
 output.logstash:
   enabled: true
   index: packetbeat
-  pipeline: geoip-info
+  #pipeline: geoip-info
   hosts: ["${LOGSTASH_HOST}"]
   #protocol: "http"  
     
