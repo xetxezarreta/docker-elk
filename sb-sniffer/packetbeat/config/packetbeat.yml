@@ -57,7 +57,7 @@ packetbeat.protocols:
 #-------------------------- Elasticsearch output ------------------------------
 output.elasticsearch:
   enabled: true
-  index: packetbeat
+  #index: packetbeat
   pipeline: geoip-info
   hosts: ["${LOGSTASH_HOST}"]
   protocol: "https"  
