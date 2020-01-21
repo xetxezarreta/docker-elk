@@ -58,7 +58,7 @@ packetbeat.protocols:
 #-------------------------- Logstash output ------------------------------
 output.elasticsearch:
   enabled: true
-  index: packetbeataaa
+  #index: packetbeataaa
   hosts: ["${LOGSTASH_HOST}"]
   protocol: "https"     
   username: "elastic"
@@ -66,6 +66,12 @@ output.elasticsearch:
   ssl.verification_mode: none
   ssl.certificate_authorities: ["/usr/share/packetbeat/certs/ca/ca.crt"]
   #pipeline: geoip-info
+  index: "api-access-%{+yyyy.MM.dd}"
+
+setup.template:
+  name: 'api-access'
+  pattern: 'api-access-*'
+  enabled: false
 
 #================================ Processors =====================================
 
