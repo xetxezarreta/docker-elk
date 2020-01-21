@@ -65,7 +65,7 @@ output.elasticsearch:
   password: "changeme"
   ssl.verification_mode: none
   ssl.certificate_authorities: ["/usr/share/packetbeat/certs/ca/ca.crt"]
-  #pipeline: geoip-info
+  pipeline: geoip-info
   index: "packetbeat-honeypot"
 
 setup.template.name: "packetbeathoneypot"
