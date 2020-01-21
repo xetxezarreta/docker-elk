@@ -41,4 +41,10 @@ output.elasticsearch:
   password: "changeme"
   ssl.verification_mode: none
   ssl.certificate_authorities: ["/usr/share/metricbeat/certs/ca/ca.crt"]
-  #pipeline: geoip-info
+  index: "metricbeat-microservices"
+
+setup.template.name: "metricbeatmicroservices"
+setup.template.pattern: "metricbeatmicroservices-*"
+
+
+
