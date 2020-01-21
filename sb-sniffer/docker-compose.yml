@@ -18,6 +18,9 @@ services:
         source: ./packetbeat/config/packetbeat.yml
         target: /usr/share/packetbeat/packetbeat.yml
         read_only: true
+      - type: bind
+        source: ../sb-ml/ssl/ca.crt
+        target: /usr/share/packetbeat/certs/ca/ca.crt
         
   metricbeat:
     container_name: metricbeat
@@ -35,3 +38,6 @@ services:
         source: ./metricbeat/config/metricbeat.yml
         target: /usr/share/metricbeat/metricbeat.yml
         read_only: true
+      - type: bind
+        source: ../sb-ml/ssl/ca.crt
+        target: /usr/share/metricbeat/certs/ca/ca.crt

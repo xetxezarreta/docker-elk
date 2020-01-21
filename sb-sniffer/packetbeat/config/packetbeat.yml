@@ -56,17 +56,16 @@ packetbeat.protocols:
 # Configure what output to use when sending the data collected by the beat.
 
 #-------------------------- Logstash output ------------------------------
-output.logstash:
+output.elasticsearch:
   enabled: true
-  index: packetbeat
-  #pipeline: geoip-info
+  index: packetbeataaa
   hosts: ["${LOGSTASH_HOST}"]
-  #protocol: "http"  
-    
-  # Authentication credentials - either API key or username/password.
-  #api_key: "id:api_key"
+  protocol: "https"     
   username: "elastic"
   password: "changeme"
+  ssl.verification_mode: none
+  ssl.certificate_authorities: ["/usr/share/packetbeat/certs/ca/ca.crt"]
+  #pipeline: geoip-info
 
 #================================ Processors =====================================
 

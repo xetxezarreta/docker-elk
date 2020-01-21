@@ -32,14 +32,13 @@ processors:
   - add_docker_metadata: ~
 
 #-------------------------- Logstash output ------------------------------
-output.logstash:
+output.elasticsearch:
   enabled: true
-  index: metricbeat
-  #hosts: ["54.225.40.12:5000"]
+  index: metricbeataaa
   hosts: ["${LOGSTASH_HOST}"]
-  #protocol: "http"  
-    
-  # Authentication credentials - either API key or username/password.
-  #api_key: "id:api_key"
+  protocol: "https"     
   username: "elastic"
   password: "changeme"
+  ssl.verification_mode: none
+  ssl.certificate_authorities: ["/usr/share/metricbeat/certs/ca/ca.crt"]
+  #pipeline: geoip-info
