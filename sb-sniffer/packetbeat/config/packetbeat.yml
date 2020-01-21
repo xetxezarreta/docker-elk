@@ -68,8 +68,8 @@ output.elasticsearch:
   #pipeline: geoip-info
   index: "packetbeat-honey"
 
-#setup.template.name: "packetbeathoney"
-#setup.template.pattern: "packetbeathoney-*"
+setup.template.name: "packetbeathoney"
+setup.template.pattern: "packetbeathoney-*"
 
 #================================ Processors =====================================
 
