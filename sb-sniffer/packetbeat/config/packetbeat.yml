@@ -65,13 +65,13 @@ output.elasticsearch:
   password: "changeme"
   ssl.verification_mode: none
   ssl.certificate_authorities: ["/usr/share/packetbeat/certs/ca/ca.crt"]
-  #pipeline: geoip-info
-  index: "api-access-%{+yyyy.MM.dd}"
+  pipeline: geoip-info
+  index: "packetbeat-honey"
 
 setup.template:
-  name: 'api-access'
-  pattern: 'api-access-*'
-  enabled: false
+  name: 'packetbeat-honey'
+  pattern: 'packetbeat-honey-*'
+
 
 #================================ Processors =====================================
 
