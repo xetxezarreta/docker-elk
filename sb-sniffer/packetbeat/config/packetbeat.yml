@@ -66,10 +66,10 @@ output.elasticsearch:
   ssl.verification_mode: none
   ssl.certificate_authorities: ["/usr/share/packetbeat/certs/ca/ca.crt"]
   #pipeline: geoip-info
-  index: "%{[fields.log_type]}-%{[beat.version]}-%{+yyyy.MM.dd}"
+  index: "packetbeathoney"
 
-setup.template.name: "packetbeathoney"
-setup.template.pattern: "packetbeathoney-*"
+#setup.template.name: "packetbeathoney"
+#setup.template.pattern: "packetbeathoney-*"
 
 #================================ Processors =====================================
 
