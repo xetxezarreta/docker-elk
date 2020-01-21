@@ -35,9 +35,9 @@ services:
       - "5060:5060/udp"
       - "5061:5061"
       - "27017:27017"
-      
+
   packetbeat:
-    container_name: packetbeat
+    container_name: packetbeat1
     build:
       context: packetbeat/
       args:
@@ -58,7 +58,7 @@ services:
         target: /usr/share/packetbeat/certs/ca/ca.crt
         
   metricbeat:
-    container_name: metricbeat
+    container_name: metricbeat1
     build:
       context: metricbeat/
       args:
